@@ -3,7 +3,7 @@ clear;
 
 %x = ga(fun,nvars,A,b,Aeq,beq,lb,ub)
 
-%x = coordinates = times
+%x = coordinates = times in MJD
 %fun to find delta V given the t (dep, ga, arr)
 % lb and ub to put in place the domain
 

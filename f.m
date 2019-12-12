@@ -1,4 +1,8 @@
-function [deltaV_tot] = f (t_dep, t_ga, t_arr)
+function [deltaV_tot] = f (t)
+
+t_dep = t(1);
+t_ga = t(2);
+t_arr = t(3);
 
 mu = astroConstants(4);
 dep_Id = 1; % Mercury
@@ -30,3 +34,4 @@ deltaV_2 = (norm(vv_f2 - vv_arr) + norm(vv_i2 - vv_ga));
 
 deltaV_tot = deltaV_1 + deltaV_2;
 
+return

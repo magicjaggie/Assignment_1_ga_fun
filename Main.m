@@ -14,15 +14,15 @@ arr_Id = 4; % Mars
 
 % Departure domain - from Mercury
 min_dep_date = [2020 1 1 0 0 0];
-max_dep_date = [2020 8 1 0 0 0];
+max_dep_date = [2030 8 1 0 0 0];
 
 % GA domain - Venus
 min_ga_date = [2020 6 1 0 0 0];
-max_ga_date = [2021 2 1 0 0 0];
+max_ga_date = [2031 2 1 0 0 0];
 
 % Arrival domain - to Mars
 min_arr_date = [2021 1 1 0 0 0];
-max_arr_date = [2021 8 1 0 0 0];
+max_arr_date = [2031 8 1 0 0 0];
 
 % Other inputs
 mu = astroConstants(4);
@@ -61,7 +61,7 @@ options = optimoptions('ga', 'FunctionTolerance', 1e-6, 'Display', 'off');
 
 
 % Genetic algorithms
-[t, fval, exitflag, output, population, scores] = ga (@f, 3,A,b,[],[],lb,ub);
+[t, fval, exitflag, output, population, scores] = ga (@f,3,A,b,[],[],lb,ub,[],options);
 
 
 td = mjd20002date(t(1));
@@ -126,6 +126,9 @@ v2 = [Y2(:,4),Y2(:,5),Y2(:,6)];
 figure(1)
 plot(T1,r1(:,1))
 title('Trajectory of 1st transfer')
+hold on
+plot(T2,r2(:,1))
+title('Trajectory of 2nd transfer')
 
 
 % % Draw planets
